@@ -24,7 +24,8 @@ public class ServiceCallManager {
     String[] addCallOptions = {
             "1. Add service call for furnace",
             "2. Add service call for AC unit",
-            "3. Return to main menu" };
+            "3. Add service call for water heater",
+            "4. Return to main menu" };
 
 
     /* Constructor sets up the two lists, the UserInput object, and starts the main menu */
@@ -98,6 +99,9 @@ public class ServiceCallManager {
                 addACServiceCall();
             }
             else if (choice == 3) {
+                addWaterHeaterCall();
+            }
+            else if (choice == 4) {
                 return;
             }
             else {
@@ -132,6 +136,15 @@ public class ServiceCallManager {
         System.out.println("Added the following AC unit to list of calls:\n" + ac);
     }
 
+    private void addWaterHeaterCall() {
+        String address = Input.getStringInput("Enter address of water heater");
+        String problem = Input.getStringInput("Enter description of problem");
+        int age = Input.getPositiveIntInput("Enter age of water heater");
+
+        WaterHeater wh = new WaterHeater(address, problem, new Date(), age);
+        todayServiceCalls.add(wh);
+        System.out.println("Added the following water heater unit to list of calls:\n" + wh);
+    }
 
     /* Resolve the call at the top of the queue
      Call is resolved by removing it from the queue, asking user
