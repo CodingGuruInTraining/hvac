@@ -30,6 +30,6 @@ public class WaterHeater extends ServiceCall{
                 "Reported Date = " + reportedDate + "\n" +
                 "Resolved Date = " + resolvedDateString + "\n" +
                 "Resolution = " + resolutionString + "\n" +
-                "Fee = " + feeString ;
+                "Fee = " + feeString + " (base fee $" + fee + " + city fee $" + extraFee + ")" ;
     }
 }
